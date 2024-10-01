@@ -1,5 +1,12 @@
 import localFont from "next/font/local";
+
+// add bootstrap css before custom styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import "./globals.css";
+
+// add header
+import Header from "./components/header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,6 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <Header />
         {children}
       </body>
     </html>
