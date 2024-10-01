@@ -7,6 +7,9 @@ import "./globals.css";
 
 // add header
 import Header from "./components/header";
+import Footer from "./components/footer";
+
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,6 +33,8 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         {children}
+        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></Script>
+        <Footer />
       </body>
     </html>
   );
