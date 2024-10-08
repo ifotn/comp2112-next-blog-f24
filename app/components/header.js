@@ -13,7 +13,7 @@ export default function Header() {
                 <Link className="nav-link" href="/about" id="about"><i className="bi bi-info-square"></i> About</Link>
                 <Link className="nav-link" href="/services" id="services"><i className="bi bi-list-check"></i> Services</Link>
                 <Link className="nav-link" href="/contact" id="contact"><i className="bi bi-envelope"></i> Contact</Link>
-                <a className="nav-link" href="#" id="lab2"><i className="bi bi-list-task"></i> Lab 2</a>
+                <a className="nav-link" href="/blog" id="blog"><i className="bi bi-substack"></i> Blog</a>
                 </div>
             </div>
             </div>

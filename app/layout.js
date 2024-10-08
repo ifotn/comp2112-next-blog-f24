@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 
 // add bootstrap css before custom styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 import "./globals.css";
 
