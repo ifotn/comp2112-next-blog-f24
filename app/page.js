@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  // use the Effect hook to set the page title
+  useEffect(() => {
+    document.title = 'Home';
+    console.log('Home loaded');
+  })
+
   // use the State hook to keep track of the current value of our counter var
   // our counter var has a default value of 0
   const [counter, setCounter] = useState(0);
