@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default async function Blog() {
     // make API call to the vercel blog to retrieve its contents
     let data = await fetch('https://api.vercel.app/blog');
@@ -11,7 +13,11 @@ export default async function Blog() {
             <ul className="list-group">
                 {posts.map((post) => (
                     <li key={post.id} className="list-group-item">
-                        <h4>{post.title}</h4>
+                        <h4>
+                            <Link href={`/blog/${post.id}`}>
+                                {post.title}
+                            </Link>                                
+                        </h4>
                         {post.author} - {post.date}
                     </li>
                 ))}
