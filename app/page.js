@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+// context for global counter var
+import { CounterContext } from "./components/counterContext";
 
 export default function Home() {
   // use the Effect hook to set the page title
@@ -13,8 +15,12 @@ export default function Home() {
   // our counter var has a default value of 0
   const [counter, setCounter] = useState(0);
 
+  // session counter state var
+  const { sessionCounter, setSessionCounter } = useContext(CounterContext);
+
   const updateCounter = () => {
     setCounter(counter + 1);
+    setSessionCounter(sessionCounter + 1);
   }
 
   return (
