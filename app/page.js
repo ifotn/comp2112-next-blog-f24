@@ -23,6 +23,11 @@ export default function Home() {
     setSessionCounter(sessionCounter + 1);
   }
 
+  const resetCounter = () => {
+    setCounter(0);
+    setSessionCounter(0);
+  }
+
   return (
       <main>
         <p>
@@ -31,6 +36,7 @@ export default function Home() {
         <section>
           <p>Count: {counter}</p>
           <button className="btn btn-primary" onClick={updateCounter}>Click Me</button>
+          <button className="btn btn-primary" onClick={resetCounter}>Reset</button>
         </section>
       </main>
   );

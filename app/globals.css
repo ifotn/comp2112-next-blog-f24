@@ -44,3 +44,20 @@ a {
 main { 
   margin: 50px;
 }
+
+/* form styles */
+textarea {
+  width: 800px;
+  height: 250px;
+  margin-bottom: 15px;
+}
+
+.inputWide {
+  width: 800px;
+  margin-bottom: 15px;
+}
+
+label {
+  width: 105px;
+  vertical-align: top;
+}
