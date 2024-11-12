@@ -10,10 +10,14 @@ export default function Header() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                <Link className="nav-link" href="/about" id="about"><i className="bi bi-info-square"></i> About</Link>
-                <Link className="nav-link" href="/services" id="services"><i className="bi bi-list-check"></i> Services</Link>
-                <Link className="nav-link" href="/contact" id="contact"><i className="bi bi-envelope"></i> Contact</Link>
-                <Link className="nav-link" href="/blog" id="blog"><i className="bi bi-substack"></i> Blog</Link>
+                    <Link className="nav-link" href="/about" id="about"><i className="bi bi-info-square"></i> About</Link>
+                    <Link className="nav-link" href="/services" id="services"><i className="bi bi-list-check"></i> Services</Link>
+                    <Link className="nav-link" href="/contact" id="contact"><i className="bi bi-envelope"></i> Contact</Link>
+                    <Link className="nav-link" href="/blog" id="blog"><i className="bi bi-substack"></i> Blog</Link>
+                </div>
+                <div className="navbar-nav ms-auto">
+                    <Link className="nav-link" href="/register" id="register"><i className="bi bi-person-add"></i> Register</Link>
+                    <Link className="nav-link" href="/login" id="login"><i className="bi bi-check2-circle"></i> Login</Link>
                 </div>
             </div>
             </div>
