@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CounterContext } from "../components/counterContext";
 import Cookies from "js-cookie";
-import { router, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
     useEffect(() => {
         document.title = 'Login';
     });
+
+    const [message, setMessage] = useState('Please enter your credentials');
+    const [messageClass, setMessageClass] = useState('alert alert-primary');
+    const { username, setUsername } = useContext(CounterContext);
 
     const router = useRouter();
 
@@ -27,20 +32,26 @@ export default function Login() {
 
             if (response.ok) {
                 console.log(response.json)
-                router.push("/blog");
+                setUsername(formData.get('username'));
+                router.push('/blog');
             }
             else {
                 console.log(`Login Error: ${response.msg}`);
+                setMessage(`Invalid Login`);
+                setMessageClass('alert alert-danger');
             }
         }
         catch (Error) {
             console.log(`Login Error: ${Error}`);
+            setMessage(`Login Error ${Error}`);
+            setMessageClass('alert alert-danger');
         }
     }
 
     return (
         <main>
             <h1>Login</h1>
+            <h3 className={messageClass}>{message}</h3>
             <form action={login}>
                 <fieldset className="pb-3">
                     <label htmlFor="username">Username: *</label>

@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link"
+import { CounterContext } from "./counterContext"
+import { useContext } from "react"
 
 export default function Header() {
+    const { username } = useContext(CounterContext);
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div className="container-fluid">
@@ -15,10 +20,18 @@ export default function Header() {
                     <Link className="nav-link" href="/contact" id="contact"><i className="bi bi-envelope"></i> Contact</Link>
                     <Link className="nav-link" href="/blog" id="blog"><i className="bi bi-substack"></i> Blog</Link>
                 </div>
-                <div className="navbar-nav ms-auto">
-                    <Link className="nav-link" href="/register" id="register"><i className="bi bi-person-add"></i> Register</Link>
-                    <Link className="nav-link" href="/login" id="login"><i className="bi bi-check2-circle"></i> Login</Link>
-                </div>
+                {username &&
+                    <div className="navbar-nav ms-auto">
+                        <Link className="nav-link" href="/#"><i className="bi bi-person"></i> {username}</Link>
+                        <Link className="nav-link" href="/logout" id="logout"><i className="bi bi-box-arrow-right"></i> Logout</Link>
+                    </div>
+                }
+                {!username &&
+                    <div className="navbar-nav ms-auto">
+                        <Link className="nav-link" href="/register" id="register"><i className="bi bi-person-add"></i> Register</Link>
+                        <Link className="nav-link" href="/login" id="login"><i className="bi bi-check2-circle"></i> Login</Link>
+                    </div>
+                }           
             </div>
             </div>
         </nav>
