@@ -11,6 +11,9 @@ export default function Register() {
     const [messageClass, setMessageClass] = useState('alert alert-primary');
     const [loginButtonClass, setLoginButtonClass] = useState('.d-none');
 
+    // read domain var from .env 
+    const serverApiDomain = process.env.NEXT_PUBLIC_SERVER_API_DOMAIN;
+
     const onSubmit = async(formData) => {
         // validate passwords
         if (formData.get('password') != formData.get('confirm')) {
@@ -21,16 +24,17 @@ export default function Register() {
 
         // passwords match, send new user to api
         try {
-            let reponse = await fetch('https://vercel-blog-api-eta.vercel.app/api/v1/users/register', {
+            //let reponse = await fetch('https://vercel-blog-api-eta.vercel.app/api/v1/users/register', {
             //let reponse = await fetch('http://localhost:4000/api/v1/users/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: formData.get('username'),
-                    password: formData.get('password')
-                })
+            let response = await fetch(`${serverApiDomain}/users/register`, {
+              method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      username: formData.get('username'),
+                      password: formData.get('password')
+                  })
             });
 
             let apiResponse = await reponse.json();

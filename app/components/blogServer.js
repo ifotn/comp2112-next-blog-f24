@@ -5,7 +5,10 @@ import BlogClient from "./blogClient";
 export default async function BlogServer() {
     // make API call to the vercel blog to retrieve its contents
     //let data = await fetch('https://api.vercel.app/blog');
-    let data = await fetch('https://vercel-blog-api-eta.vercel.app/api/v1/posts', {
+    // read domain var from .env 
+    const serverApiDomain = process.env.NEXT_PUBLIC_SERVER_API_DOMAIN;
+
+    let data = await fetch(`${serverApiDomain}/posts`, {
         next: {
             revalidate: 0
         }

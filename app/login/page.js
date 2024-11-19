@@ -13,12 +13,14 @@ export default function Login() {
     const [message, setMessage] = useState('Please enter your credentials');
     const [messageClass, setMessageClass] = useState('alert alert-primary');
     const { username, setUsername } = useContext(CounterContext);
+    // read domain var from .env 
+    const serverApiDomain = process.env.NEXT_PUBLIC_SERVER_API_DOMAIN;
 
     const router = useRouter();
 
     const login = async(formData) => {
         try {
-            const response = await fetch('https://vercel-blog-api-eta.vercel.app/api/v1/users/login', {
+            const response = await fetch(`${serverApiDomain}/users/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

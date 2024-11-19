@@ -5,9 +5,12 @@ export default function CreatePost() {
         // get current timestamp using js
         let postDate = new Date();
         console.log(`postDate: ${postDate}`);
+    
+        // read domain var from .env 
+        const serverApiDomain = process.env.NEXT_PUBLIC_SERVER_API_DOMAIN;
 
         try {
-            let response = await fetch('https://vercel-blog-api-eta.vercel.app/api/v1/posts', {
+            let response = await fetch(`${serverApiDomain}/posts`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
