@@ -21,8 +21,8 @@ export default function Register() {
 
         // passwords match, send new user to api
         try {
-            //let reponse = await fetch('https://vercel-blog-api-eta.vercel.app/api/v1/auth/register', {
-            let reponse = await fetch('http://localhost:4000/api/v1/users/register', {
+            let reponse = await fetch('https://vercel-blog-api-eta.vercel.app/api/v1/users/register', {
+            //let reponse = await fetch('http://localhost:4000/api/v1/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
