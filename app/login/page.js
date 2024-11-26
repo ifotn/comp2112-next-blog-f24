@@ -30,18 +30,19 @@ export default function Login() {
                     password: formData.get('password')
                 }),
                 credentials: 'include'  // Include credentials for CORS with cookies
-            });
-
+            });            
+            
             if (response.ok) {
                 console.log(response.json)
                 setUsername(formData.get('username'));
-                router.push('/blog');
+                //router.push('/blog');
             }
             else {
                 console.log(`Login Error: ${response.msg}`);
                 setMessage(`Invalid Login`);
                 setMessageClass('alert alert-danger');
             }
+           
         }
         catch (Error) {
             console.log(`Login Error: ${Error}`);

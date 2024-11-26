@@ -1,6 +1,11 @@
 "use client";
 
+import { useContext } from "react";
+import { CounterContext } from "@/app/components/counterContext";
+
 export default function CreatePost() {
+    const { username } = useContext(CounterContext);
+
     const submitForm = async (formData) => {
         // get current timestamp using js
         let postDate = new Date();
@@ -18,13 +23,15 @@ export default function CreatePost() {
                 body: JSON.stringify({
                     title: formData.get('title'),
                     content: formData.get('content'),
-                    author: formData.get('author'),
+                    author: username, // formData.get('author'),
                     date: postDate
-                })
+                }),
+                credentials: 'include' // pass the jwt to fetch as well to authenticate
             });
             // wait for response & redirect
             let apiResponse = await response.json();
-            window.location.href = '/blog';
+            console.log(apiResponse);
+            //window.location.href = '/blog';
         }
         catch (error) {
             console.log(error);
@@ -40,13 +47,13 @@ export default function CreatePost() {
                     <input name="title" required className="inputWide" />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="body">Body: *</label>
-                    <textarea name="body" required></textarea>
+                    <label htmlFor="content">Content: *</label>
+                    <textarea name="content" required></textarea>
                 </fieldset>
-                <fieldset>
+                {/* <fieldset>
                     <label htmlFor="author">Author: *</label>
                     <input name="author" required className="inputWide" />
-                </fieldset>
+                </fieldset> */}
                 <button className="btn btn-primary offset-4">
                     <i className="bi bi-floppy"></i> Save
                 </button>
