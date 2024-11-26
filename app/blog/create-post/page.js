@@ -2,9 +2,16 @@
 
 import { useContext } from "react";
 import { CounterContext } from "@/app/components/counterContext";
+import { useRouter } from "next/navigation";
 
 export default function CreatePost() {
     const { username } = useContext(CounterContext);
+    const router = useRouter();
+
+    // auth check => make page private based on global context username
+    if (!username) {
+        router.push('/login');
+    }
 
     const submitForm = async (formData) => {
         // get current timestamp using js
